@@ -3,7 +3,7 @@ require 'erb'
 require 'data_mapper'
 
 DataMapper::Logger.new($stdout, :debug)
-DataMapper.setup(:default, "sqlite:///#{Dir.pwd}/project.db")
+DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite:///#{Dir.pwd}/project.db")
 
 class URL
   include DataMapper::Resource
