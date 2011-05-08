@@ -1,0 +1,17 @@
+<h1>Bobs URL Shortener</h1>
+  <% if @saved %>
+    <div class="flash">Success - <%= url @saved %> <%= clippy(url(@saved))%></div>
+  <% end%>
+  
+  
+  <form action ='/save/' method ='post' >
+    <label>Shorten URL</label>
+    <input tye='text' name='url[url]' />
+  </form>
+
+   <h1>URLS</h1>
+   <ul>
+    <% @urls.each do |u| %>
+      <li><%= u.url %> - <%= u.alias %></li>
+    <% end %>
+   </ul>
